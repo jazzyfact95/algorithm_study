@@ -13,7 +13,7 @@
 
 - QUESTION (유종원) 1. https://www.acmicpc.net/problem/11004
 - QUESTION (최현석) 2. https://www.acmicpc.net/problem/2798
-- QUESTION (유기정) 3.
+- QUESTION (유기정) 3. https://www.acmicpc.net/problem/11399
 - 추가 논의 사항 1. 알고리즘 교재 선정
 - 추가 논의 사항 2. 금일 모임 피드백
 
