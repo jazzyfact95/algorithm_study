@@ -5,32 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-
-public class jw_solution_1_1205 {
-
-    public static void main(String[] args) throws Exception{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        ArrayList<Integer> list = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int k = Integer.parseInt(st.nextToken());
-        st = new StringTokenizer(br.readLine());
-
-        for(int i=0; i<n; i++)
-            list.add(Integer.parseInt(st.nextToken()));
-
-        Collections.sort(list);
-        bw.write(String.valueOf(list.get(k - 1)));
-        br.close();
-        bw.close();
-    }
-
-}
-
-
-
 /**
  * K번째 수
  * 작성자 : 유종원
@@ -52,3 +26,34 @@ public class jw_solution_1_1205 {
  * 출력
  * 2
  */
+
+public class jw_solution_1_1205 {
+
+    public static void solution() throws Exception{
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int n = Integer.parseInt(st.nextToken());
+
+        int k = Integer.parseInt(st.nextToken());
+
+        st = new StringTokenizer(br.readLine());
+
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i=0; i<n; i++)
+            list.add(Integer.parseInt(st.nextToken()));
+
+        Collections.sort(list);
+
+        bw.write(String.valueOf(list.get(k - 1)));
+        br.close();
+        bw.close();
+    }
+
+}
