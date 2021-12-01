@@ -23,6 +23,9 @@ public class jw_solution_2_1205 {
             this.absNum = absNum;
             this.idx = idx;
         }
+        public int getAbsNum(){
+            return absNum;
+        }
     }
 
     static class AbsComparator implements Comparator<Card> {
@@ -35,6 +38,9 @@ public class jw_solution_2_1205 {
         }
     }
     public static void solution() throws Exception{
+
+
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer token = new StringTokenizer(br.readLine());
@@ -66,6 +72,7 @@ public class jw_solution_2_1205 {
             }
             index++;
         }
+
         System.out.println(k - m);
     }
 }
