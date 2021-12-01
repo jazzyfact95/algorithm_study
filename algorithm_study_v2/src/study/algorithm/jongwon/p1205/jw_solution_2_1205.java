@@ -72,7 +72,8 @@ public class jw_solution_2_1205 {
             }
             index++;
         }
-
-        System.out.println(k - m);
+        bw.write(k - m);
+        br.close();
+        bw.close();
     }
 }
