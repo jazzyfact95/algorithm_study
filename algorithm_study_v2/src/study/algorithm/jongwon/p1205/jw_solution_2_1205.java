@@ -14,31 +14,28 @@ import java.util.StringTokenizer;
  *
  */
 public class jw_solution_2_1205 {
-    static class Card{
-        public int cardNum;
-        public int absNum;
-        public int idx;
-        Card(int cardNum, int absNum, int idx){
-            this.cardNum = cardNum;
-            this.absNum = absNum;
-            this.idx = idx;
-        }
-        public int getAbsNum(){
-            return absNum;
-        }
-    }
 
-    static class AbsComparator implements Comparator<Card> {
-
-        @Override
-        public int compare(Card o1, Card o2) {
-            if ( o1.absNum > o2.absNum )    return 1;
-            else if (o1.absNum < o2.absNum) return -1;
-            else                            return 0;
+    public static void yjw() throws Exception{
+        class Card{
+            public int cardNum;
+            public int absNum;
+            public int idx;
+            Card(int cardNum, int absNum, int idx){
+                this.cardNum = cardNum;
+                this.absNum = absNum;
+                this.idx = idx;
+            }
         }
-    }
-    public static void solution() throws Exception{
 
+        class AbsComparator implements Comparator<Card> {
+
+            @Override
+            public int compare(Card o1, Card o2) {
+                if ( o1.absNum > o2.absNum )    return 1;
+                else if (o1.absNum < o2.absNum) return -1;
+                else                            return 0;
+            }
+        }
 
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -75,5 +72,9 @@ public class jw_solution_2_1205 {
         bw.write(k - m);
         br.close();
         bw.close();
+    }
+
+    public static void solution(){
+
     }
 }
