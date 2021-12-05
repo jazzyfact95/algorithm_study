@@ -74,7 +74,46 @@ public class jw_solution_2_1205 {
         bw.close();
     }
 
-    public static void solution(){
+    public static void solution() throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
+        int n = Integer.parseInt(st.nextToken());       //블랙잭 카드 수
+        int score = Integer.parseInt(st.nextToken());   //블랙잭 점수
+
+        st = new StringTokenizer(br.readLine());
+        int[] list = new int[n];
+        for (int i = 0; i < n; i++){
+            list[i] = (Integer.parseInt(st.nextToken()));
+        }
+        int max = search(score, list, n);
+        System.out.println(max);
     }
+
+    //조회 메소드
+    public static int search(int score, int[] list, int n){
+        int max = 0;
+        for (int i = 0; i < n-2; i++){ //카드 수가 3장이므로 첫 번째 카드는 카드수 -2까지
+            for (int j = i+1; j < n-1; j++){//두 번째 카드는 카드 수 -1 까지
+                for (int k = j+1; k < n; k++){
+                    int targetScore = (list[i] + list[j] + list[k]);
+                    if ( max <= targetScore && targetScore <= score ){
+                        max = targetScore;
+                        if (max == score)   return max; //제시된 블랙잭 점수와 같을 경우 탐색 종료
+                    }
+
+                }
+            }
+        }
+        return max;
+    }
+
+    public static void main(String[] args) {
+        try {
+            jw_solution_2_1205.solution();
+        }
+        catch (Exception e){ e.printStackTrace(); }
+    }
+
 }
+
