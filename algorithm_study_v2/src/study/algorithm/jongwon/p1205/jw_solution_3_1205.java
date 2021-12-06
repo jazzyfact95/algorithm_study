@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -44,10 +43,10 @@ public class jw_solution_3_1205 {
         }
         Collections.sort(list);
         int sum = 0;
-        int before = 0;
         for (int i = 0; i < list.size(); i++){
-            sum = before + list.get(i);
-            before += list.get(i);
+            for ( int k = 0; k < i+1; k++){
+                sum += list.get(k);
+            }
         }
         bw.write(String.valueOf(sum));
         br.close();
