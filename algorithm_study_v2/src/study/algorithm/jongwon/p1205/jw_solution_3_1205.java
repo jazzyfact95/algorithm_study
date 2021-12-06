@@ -44,10 +44,10 @@ public class jw_solution_3_1205 {
         }
         Collections.sort(list);
         int sum = 0;
+        int before = 0;
         for (int i = 0; i < list.size(); i++){
-            for ( int k = 0; k < i+1; k++){
-                sum += list.get(k);
-            }
+            sum = before + list.get(i);
+            before += list.get(i);
         }
         bw.write(String.valueOf(sum));
         br.close();
