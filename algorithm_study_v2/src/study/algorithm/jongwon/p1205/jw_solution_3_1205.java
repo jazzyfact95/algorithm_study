@@ -1,5 +1,6 @@
 package study.algorithm.jongwon.p1205;
 
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;

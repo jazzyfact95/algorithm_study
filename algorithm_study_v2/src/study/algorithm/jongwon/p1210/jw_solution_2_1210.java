@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
  * 정답이 너무 클 수 있으니 문자열로 바꾸어 return 합니다.
  *
  *
- *
+ * dsadasdasdsadsadas
  *
  * 숫자를 내림차순.
  *
@@ -41,6 +41,7 @@ public class jw_solution_2_1210 {
             if ( reverse.get(i) > 9 ) big.add(String.valueOf(reverse.get(i)));
             else                   small.add(String.valueOf(reverse.get(i)));
         }
+        String test = "dsadasasdsaas";
 
         for (int i = 0; i < numbersLength; i++){
             int length = String.valueOf(big.get(0)).length();
