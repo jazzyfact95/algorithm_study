@@ -2,10 +2,8 @@ package study.algorithm.jongwon.p1210;
 
 import com.sun.java.swing.plaf.windows.WindowsTextAreaUI;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import javax.xml.bind.SchemaOutputResolver;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -72,31 +70,111 @@ public class jw_solution_2_1210 {
         return answer;
     }
 
-    public String solution(int[] numbers){
+    public String solution_2(int[] numbers){
         String answer = "";
         List<String> numberStrings = Arrays.stream(numbers).boxed().map(String::valueOf).collect(Collectors.toList());
-        for (int i = 0; i < numbers.length-1; i++){
+        int State = 0;
+        for (int i = 0; i <= numberStrings.size()-1; i++){
             int maxIdx = 0;
             int maxLength = 0;
-            for ( int j = i+1; j < numbers.length; j++ ){
+            for ( int j = i+1; j <= numberStrings.size(); j++ ){
+                int test1 = Integer.parseInt(numberStrings.get(i).substring(0 ,1));
+                int test2 = Integer.parseInt(numberStrings.get(j).substring(0 ,1));
                 if ( Integer.parseInt(numberStrings.get(i).substring(0 ,1)) < Integer.parseInt(numberStrings.get(j).substring(0, 1)) ){
                     maxIdx = j;
                     maxLength = numberStrings.get(j).length();
                 }
+                else if( Integer.parseInt(numberStrings.get(i).substring(0 ,1)) > Integer.parseInt(numberStrings.get(j).substring(0, 1)) ){
+                    break;
+                }
+                //비교 수가 같을 경우
                 else if( Integer.parseInt(numberStrings.get(i).substring(0 ,1)) == Integer.parseInt(numberStrings.get(j).substring(0, 1)) ){
                     int repeat = numberStrings.get(i).length() > numberStrings.get(j).length() ? numberStrings.get(j).length() : numberStrings.get(j).length();
                     for (int k = 0; k < repeat; k++){
                         int num1 = Integer.parseInt(numberStrings.get(i).substring(k+1, k+2));
                         int num2 = Integer.parseInt(numberStrings.get(j).substring(k+1, k+2));
+                        if( num1 < num2 )   {
+                            maxIdx = j;
+                            maxLength = numberStrings.get(j).length();
+                        }
                     }
                 }
             }
-            //if ( Integer.parseInt(numberStrings.get(i).substring(0, 1)) >  ) maxIdx =
-
+            answer += numberStrings.get(maxIdx);
+            numberStrings.remove(maxIdx);
+            if ( numberStrings.size() == 1 ){
+                answer += numberStrings.get(0);
+                break;
+            }
         }
 
-        //
+        System.out.println(answer);
 
+        return answer;
+    }
+
+    //시발 안해
+    public String solution_3(int[] numbers){
+        String answer = "";
+
+        List<String> numberString = Arrays.stream(numbers).boxed().map(String::valueOf).collect(Collectors.toList());
+
+        while (true){
+            int maxIdx = 0;
+            String max = numberString.get(0);
+            int maxLength = numberString.get(0).length();
+            for ( int j = 1; j < numberString.size(); j++ ){
+                String numString1 = numberString.get(maxIdx);
+                String numString2 = numberString.get(j);
+                if ( Integer.parseInt(numString2.substring(0, 1)) > Integer.parseInt(numString1.substring(0, 1)) ){
+                    maxIdx = j;
+                    max = numString2;
+                    maxLength = numString2.length();
+                }//30 309 1
+                else if( (Integer.parseInt(numString2.substring(0, 1)) == Integer.parseInt(numString1.substring(0, 1)) &&
+                         numString1.length() != numString2.length()) ){
+                    int minLength = numString1.length() > numString2.length() ? numString2.length() : numString1.length();
+
+                    for ( int k = 0; k < minLength; k++ ){
+                        if ( Integer.parseInt(numString1.substring(k+1, k+2)) < Integer.parseInt(numString2.substring(k+1, k+2)) ){
+                            maxIdx = j;
+                            max = numString2;
+                            maxLength = numString2.length();
+                        }
+                    }
+                }
+            }
+            answer += numberString.get(maxIdx);
+            numberString.remove(maxIdx);
+            if ( numberString.size() == 1 ){
+                answer += numberString.get(0);
+                break;
+            }
+
+        }
+        return answer;
+    }
+
+    /**
+     * compareTo 부분 중요
+     * ex) 10, 6 일때 610.compareTo(106)
+     * 진짜 능지처참
+     * @param numbers
+     * @return
+     */
+    public String solution(int[] numbers){
+        String answer = "";
+        // 숫자를 문자열로 변환
+
+        List<String> list = Arrays.stream(numbers).boxed().map(String::valueOf).collect(Collectors.toList());
+
+        list.sort(( (n1, n2) -> (n2 + n1).compareTo(n1 + n2)));
+
+        if(list.get(0).equals("0")) {
+            return "0";
+        }
+
+        for ( String str : list ) answer += str;
         return answer;
     }
 
@@ -106,8 +184,6 @@ public class jw_solution_2_1210 {
         int[] example1 = {6, 10, 2};
         int[] example2 = {3, 30, 34, 5, 9};
         jw_solution_2_1210 test = new jw_solution_2_1210();
-        //test.solution_1(example1);
-        //test.solution_1(example2);
         test.solution(example1);
         test.solution(example2);
     }
