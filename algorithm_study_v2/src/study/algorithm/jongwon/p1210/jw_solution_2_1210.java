@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  */
 public class jw_solution_2_1210 {
 
-    public String solution(int[] numbers) {
+    public String solution_1(int[] numbers) {
         String answer = "";
         int numbersLength = numbers.length;
         List<Integer> reverse = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
@@ -71,12 +71,43 @@ public class jw_solution_2_1210 {
         return answer;
     }
 
+    public String solution(int[] numbers){
+        String answer = "";
+        List<String> numberStrings = Arrays.stream(numbers).boxed().map(String::valueOf).collect(Collectors.toList());
+        for (int i = 0; i < numbers.length-1; i++){
+            int maxIdx = 0;
+            int maxLength = 0;
+            for ( int j = i+1; j < numbers.length; j++ ){
+                if ( Integer.parseInt(numberStrings.get(i).substring(0 ,1)) < Integer.parseInt(numberStrings.get(j).substring(0, 1)) ){
+                    maxIdx = j;
+                    maxLength = numberStrings.get(j).length();
+                }
+                else if( Integer.parseInt(numberStrings.get(i).substring(0 ,1)) == Integer.parseInt(numberStrings.get(j).substring(0, 1)) ){
+                    int repeat = numberStrings.get(i).length() > numberStrings.get(j).length() ? numberStrings.get(j).length() : numberStrings.get(j).length();
+                    for (int k = 0; k < repeat; k++){
+                        int num1 = Integer.parseInt(numberStrings.get(i).substring(k+1, k+2));
+                        int num2 = Integer.parseInt(numberStrings.get(j).substring(k+1, k+2));
+                    }
+                }
+            }
+            //if ( Integer.parseInt(numberStrings.get(i).substring(0, 1)) >  ) maxIdx =
+
+        }
+
+        //
+
+        return answer;
+    }
+
+
+
     public static void main(String[] args) {
         int[] example1 = {6, 10, 2};
         int[] example2 = {3, 30, 34, 5, 9};
         jw_solution_2_1210 test = new jw_solution_2_1210();
-        //test.solution(example1);
+        //test.solution_1(example1);
+        //test.solution_1(example2);
+        test.solution(example1);
         test.solution(example2);
-
     }
 }
