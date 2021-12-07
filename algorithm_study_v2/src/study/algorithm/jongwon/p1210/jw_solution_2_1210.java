@@ -41,6 +41,7 @@ public class jw_solution_2_1210 {
             if ( reverse.get(i) > 9 ) big.add(String.valueOf(reverse.get(i)));
             else                   small.add(String.valueOf(reverse.get(i)));
         }
+        String test = "dsadasasdsaas";
 
         for (int i = 0; i < numbersLength; i++){
             int length = String.valueOf(big.get(0)).length();
