@@ -42,7 +42,7 @@ public class jw_solution_3_1210 {
      * 반복 시 마다
      * H-Index : 총 논문 갯수 - 1
      * 논문 인용 값 : 논문[i]
-     *
+     * dasdadasdsa
      * @param citations
      * @return
      */
