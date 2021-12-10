@@ -17,7 +17,7 @@ public class kj_solution_2_1210 {
             value += String.valueOf(numbers[i]);
             max = Integer.parseInt(value);
         }
-        //      for(int i = numbers.length - 1; i > 0; i--) {
+//        for(int i = numbers.length - 1; i > 0; i--) {
 //         String value = "";
 //         for(int j = 0; j < i; j++) {
 //            value += String.valueOf(numbers[j]);
