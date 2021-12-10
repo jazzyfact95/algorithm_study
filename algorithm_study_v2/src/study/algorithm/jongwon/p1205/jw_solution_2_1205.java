@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 
 /**
  * 블랙잭
- *
+ * 완전탐색
  */
 public class jw_solution_2_1205 {
 
@@ -31,9 +31,10 @@ public class jw_solution_2_1205 {
 
             @Override
             public int compare(Card o1, Card o2) {
-                if ( o1.absNum > o2.absNum )    return 1;
-                else if (o1.absNum < o2.absNum) return -1;
-                else                            return 0;
+//                if ( o1.absNum > o2.absNum )    return 1;
+//                else if (o1.absNum < o2.absNum) return -1;
+//                else                            return 0;
+                return Integer.compare(o1.absNum, o2.absNum);
             }
         }
 
@@ -83,6 +84,7 @@ public class jw_solution_2_1205 {
 
         st = new StringTokenizer(br.readLine());
         int[] list = new int[n];
+
         for (int i = 0; i < n; i++){
             list[i] = (Integer.parseInt(st.nextToken()));
         }
@@ -90,9 +92,12 @@ public class jw_solution_2_1205 {
         System.out.println(max);
     }
 
+
+
     //조회 메소드
     public static int search(int score, int[] list, int n){
         int max = 0;
+
         for (int i = 0; i < n-2; i++){ //카드 수가 3장이므로 첫 번째 카드는 카드수 -2까지
             for (int j = i+1; j < n-1; j++){//두 번째 카드는 카드 수 -1 까지
                 for (int k = j+1; k < n; k++){
