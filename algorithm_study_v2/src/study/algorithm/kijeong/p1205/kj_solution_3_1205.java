@@ -18,6 +18,7 @@ public class kj_solution_3_1205 {
             for(int i = 0; i < n; i++)
                 arr[i] = Integer.parseInt(st.nextToken());
 
+
             Arrays.sort(arr);
             int total = 0;
             int before = 0;
