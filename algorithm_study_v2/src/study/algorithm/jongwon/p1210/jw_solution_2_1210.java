@@ -1,8 +1,5 @@
 package study.algorithm.jongwon.p1210;
 
-import com.sun.java.swing.plaf.windows.WindowsTextAreaUI;
-
-import javax.xml.bind.SchemaOutputResolver;
 import java.util.*;
 import java.util.stream.Collectors;
 
