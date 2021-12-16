@@ -16,22 +16,22 @@
 
 // 문제 1 : https://www.acmicpc.net/problem/11004
 
-const fs = require("fs");
-const example = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+const fs = require('fs');
+const example = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 
 const example = `5 2
 4 1 2 3 5`
   .toString()
   .trim()
-  .split("\n");
+  .split('\n');
 
 const solution_1 = (example) => {
   // console.log("example > ",example);
   // console.log(example[0].split(" "));
   // const arrLength = example[0].split(" ")[0];
-  const nth = example[0].split(" ")[1];
+  const nth = example[0].split(' ')[1];
   // console.log("nth > ",nth);
-  const numArr = example[1].split(" ");
+  const numArr = example[1].split(' ');
   // console.log("numArr > ",numArr);
 
   console.log(numArr.sort((a, b) => a - b)[nth - 1]);
